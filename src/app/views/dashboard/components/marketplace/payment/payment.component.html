@@ -237,27 +237,62 @@
             </div>
           </div>
         </div>
-        <div class="w-4/12 p-5 ">
-          <h2 class="title">
+        <div class="w-4/12 p-5 pt-0">
+          <h2 class="pb-6 title">
             Tipo de pago
           </h2>
-          <div class="transfer-area">
-              <div class="form-radio">
-                <div>
+          <div class="mt-2 transfer-area">
+              <div class="p-5 form-radio">
+                <div class="p-5 border-bottom">
                   <input type="radio" id="test1" name="radio-group" checked>
                   <label for="test1">
-                    transfrencia bancaria
-                    <p>Lorem ipsum</p>
+                    <div class="mx-2 capitalize">
+                      <p>transfrencia bancaria</p>
+                    </div>
+                    <div class="pt-3 mx-2 capitalize bottom-txt">
+                      <p>Lorem ipsum</p>
+                    </div>
                   </label>
                 </div>
-                <p>
-                  <input type="radio" id="test2" name="radio-group">
-                  <label for="test2">Peach</label>
-                </p>
-                <p>
-                  <input type="radio" id="test3" name="radio-group">
-                  <label for="test3">Orange</label>
-                </p>
+                <div class="p-5 border-bottom">
+                  <input type="radio" id="test2" name="radio-group" checked>
+                  <label for="test2">
+                    <div class="mx-2 capitalize">
+                      <p>transfrencia bancaria</p>
+                    </div>
+                    <div class="pt-3 mx-2 capitalize bottom-txt">
+                      <p>Lorem ipsum</p>
+                    </div>
+                  </label>
+                </div>
+
+                <div class="flex items-center p-5">
+                    <div class="label-box">
+                      <input type="radio" id="test3" name="radio-group" checked>
+                      <label for="test3">
+                      </label>
+                    </div>
+                    <div class="div">
+                      <div class="relative select-currency-bottom">
+                        <button class="flex items-center justify-between dropdown-toggle" type="button" (click)="currencyDrop=!currencyDrop" >
+                              <img src="assets/logos/usdt.svg" alt="usdt">
+                              <p class="mx-2">USDT</p>
+                              <i class="fa-solid fa-angle-down"></i>
+                        </button>
+                        <div class="absolute dropdown-menu dropdown-menu-right " *ngIf="currencyDrop">
+                          <button class="flex items-center justify-between dropdown-item" type="button" >
+                            <img src="assets/logos/bitcoin.svg" alt="bitcoin">
+                            <p class="mx-2">BTC</p>
+                          </button>
+                          <button class="flex items-center justify-between dropdown-item" type="button" >
+                            <img src="assets/logos/usdt.svg" alt="usdt">
+                            <p class="mx-2">USDT</p>
+                          </button>
+                        </div>
+                      </div>
+                    </div>
+                </div>
+
               </div>
           </div>
         </div>

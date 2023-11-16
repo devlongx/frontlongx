@@ -482,3 +482,18 @@ body {
   }
 
 }
+
+.comapare-chart{
+  .apexcharts-plot-series
+  {
+    .apexcharts-series:first-child{
+     path{
+      stroke: red !important;
+     }
+    }
+  }
+  .apexcharts-legend-series{
+    display: none !important;
+  }
+
+}

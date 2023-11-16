@@ -153,26 +153,7 @@ export class OTCComponent {
       stateC: 'pendingC',
       time: '06.01 AM',
     },
-    {
-      id: 6,
-      flag: 'assets/flag/chile.svg',
-      coinName: 'CLP',
-      type: 'Exchange',
-      typeBg: 'exchangeC',
-      state: 'Done',
-      stateC: 'doneC',
-      time: '06.01 AM',
-    },
-    {
-      id: 7,
-      flag: 'assets/flag/chile.svg',
-      coinName: 'CLP',
-      type: 'Buy',
-      typeBg: 'buyC',
-      state: 'Canceled',
-      stateC: 'canceledC',
-      time: '06.01 AM',
-    },
+
 
 
   ];
