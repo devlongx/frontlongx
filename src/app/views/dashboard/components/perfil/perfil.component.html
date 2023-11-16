@@ -1,0 +1,596 @@
+<div class="w-full p-5 overflow-x-hidden">
+  <div class="w-full top-bar">
+    <div class="flex items-center justify-start">
+      <div class="w-4/12 p-4">
+        <div class="flex items-center w-full item-box">
+          <div class="w-2/4">
+            <div class="profile-content">
+              <h4>Verification</h4>
+              <button type="button" class="block py-2 underline" (click)="verifyStep1=true">Verificar Empresa</button>
+              <button type="button" class="block underline" (click)="verifyStep2=true">Verificar Persona</button>
+            </div>
+          </div>
+          <div class="flex items-center justify-center w-2/4 ">
+            <div class="profile-photo">
+              <img src="assets/avatar/profile.png" alt="profile">
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="w-4/12 p-4">
+        <div class="flex items-center w-full item-box">
+          <div class="w-2/4">
+            <div class="change-password">
+              <h4>Password</h4>
+              <a href="#">Change or Reset your Account password.</a>
+            </div>
+          </div>
+          <div class="flex items-center justify-center w-2/4 ">
+            <div class="change-password-btn">
+              <button type="button" class="btn" (click)="ChangePassword=!ChangePassword">Change</button>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="w-4/12 p-4">
+        <div class="flex items-center w-full item-box">
+          <div class="w-2/4">
+            <div class="two-factor">
+              <h4>Two-Factor Authentication</h4>
+              <a href="#">Secure your wallet by enablingTwo-factor authentication</a>
+            </div>
+          </div>
+          <div class="flex items-center justify-end w-2/4 ">
+            <div class="flex items-center justify-end two-factor-btn">
+              <label class="relative inline-flex items-center mr-5 cursor-pointer">
+                <input type="checkbox" value="true" class="sr-only peer" (click)="TwoFactor=!TwoFactor" [checked]="TwoFactor">
+                <div
+                  class="w-11 h-6 bg-gray-200 rounded-full peer peer-focus:ring-4 peer-focus:ring-red-300 dark:peer-focus:ring-red-800 dark:bg-gray-700 peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-0.5 after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all dark:border-gray-600 peer-checked:bg-red-600">
+                </div>
+
+              </label>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- Personal Details -->
+  <div class="flex items-start justify-start w-full h-full" [formGroup]="profile">
+    <div class="w-6/12 h-full p-4">
+      <!-- Personal Details -->
+      <div class="p-6 personal-details">
+        <h2 class="pb-4">Personal Details</h2>
+        <div class="flex flex-col mb-4 form-group">
+          <label for="completeInNo">Nombre completo</label>
+          <input type="text" name="completeInNo" id="completeInNo" class="form-control" placeholder="John Doe"
+            formControlName="NombreCompleto">
+        </div>
+        <div class="flex flex-col mb-4 form-group">
+          <label for="email">Correo Electronico</label>
+          <input type="text" name="email" id="email" class="form-control" placeholder="Johndoe@gmail.com"
+            formControlName="CorreoElectronico">
+        </div>
+        <div class="flex mb-4">
+          <div class="w-2/4">
+            <div class="flex flex-col pr-3 form-group">
+              <label for="Home">Domicilio</label>
+              <input type="text" name="Home" id="Home" class="form-control" placeholder="Lorem ipsum"
+                formControlName="Domicilio">
+            </div>
+          </div>
+          <div class="w-2/4">
+            <div class="flex flex-col pl-3 form-group">
+              <label for="City">Ciudad</label>
+              <input type="text" name="City" id="City" class="form-control" placeholder="Santiago"
+                formControlName="Ciudad">
+            </div>
+          </div>
+
+
+        </div>
+        <div class="flex mb-4">
+          <div class="w-2/4">
+            <div class="flex flex-col pr-3 form-group">
+              <label for="Country">Pais</label>
+              <input type="text" name="Country" id="Country" class="form-control" placeholder="Lorem ipsum"
+                formControlName="Pais">
+            </div>
+          </div>
+          <div class="w-2/4">
+            <div class="flex flex-col pl-3 form-group">
+              <label for="regionOrState">Región o estado</label>
+              <input type="text" name="regionOrState" id="regionOrState" class="form-control" placeholder="Santiago"
+                formControlName="RegiónEstado">
+            </div>
+          </div>
+        </div>
+        <div class="flex mb-4">
+          <div class="w-2/4">
+            <div class="flex flex-col pr-3 form-group">
+              <label for="Nationality">Nacionalidad</label>
+              <input type="text" name="Nationality" id="Nationality" class="form-control" placeholder="Chile"
+                formControlName="Nacionalidad">
+            </div>
+          </div>
+          <div class="w-2/4">
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="w-6/12 h-full p-4 ">
+      <!-- bank Details -->
+      <div class="h-full p-6 bank-details">
+        <h2 class="pb-4">Bank Details</h2>
+        <div class="relative flex flex-col mb-4 form-group">
+          <label for="SelectBank">Seleccionar banco</label>
+          <button type="button" class="flex justify-start w-full SelectBank-btn " (click)="OpenDrop()">
+            <div class="w-3/4 px-3 text-left">
+              <p>
+                {{BankName}}
+              </p>
+            </div>
+            <div class="w-1/4 px-3 text-end">
+              <i class="fa-solid" [ngClass]="isOpen? 'fa-angle-up':'fa-angle-down'"></i>
+            </div>
+          </button>
+          <div class="absolute left-0 right-0 w-full p-4 rounded-lg dropdown-menu SelectBank-drop"
+            [ngClass]="isOpen? 'active':''" aria-labelledby="triggerId">
+            <div *ngFor="let item of BankList">
+              <button class="dropdown-item" type="button" (click)="BankNameChange($event)">{{item.name}}</button>
+            </div>
+          </div>
+        </div>
+        <div class="flex flex-col mb-4 form-group">
+          <label for="BankAccount">Bank Account</label>
+          <input type="text" name="email" id="BankAccount" class="form-control" placeholder="Johndoe@gmail.com"
+            formControlName="BankAccount">
+        </div>
+        <div class="flex mb-4">
+          <div class="w-2/4">
+            <div class="flex flex-col pr-3 form-group">
+              <label for="Account">Account</label>
+              <input type="text" name="Account" id="Account" class="form-control" placeholder="John"
+                formControlName="Account">
+            </div>
+          </div>
+          <div class="w-2/4">
+            <div class="flex flex-col pl-3 form-group">
+              <label for="RUT">RUT</label>
+              <input type="text" name="RUT" id="RUTRUT" class="form-control" placeholder="Lorem ipsum"
+                formControlName="RUT">
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="py-5 save-button">
+    <button type="button" class="btn" (click)="profileSubmit()" [disabled]="!profile.valid">Save changes</button>
+  </div>
+</div>
+
+<!-- .Company Verification -->
+<!-- step 1 -->
+<div class="verification-area" *ngIf="verifyStep1">
+  <div class="modal">
+    <div class="p-5 top-bar">
+      <div class="flex">
+        <div class="w-3/4">
+          <a href="">Verification Empresa</a>
+        </div>
+        <div class="flex justify-end w-1/4">
+          <button type="button" class="btn" (click)="verifyStepHide()"><i class="fa-solid fa-xmark"></i></button>
+        </div>
+      </div>
+    </div>
+    <div class="pt-5 modal-content">
+      <div class="file-inputs">
+        <div class="flex mb-4">
+          <div class="w-2/4 p-3">
+            <div class="flex items-center w-full form-group">
+              <div class="flex items-center w-3/4">
+                <label for="uploadFile1">
+                  <p>{{verificationFileNem1}}</p>
+                </label>
+              </div>
+              <div class="flex items-center justify-end w-1/4">
+                <label for="uploadFile1">
+                  <img src="assets/icons/uploadFile.svg" alt="fileUpload">
+                </label>
+                <input type="file" class="hidden form-control-file" name="uploadFile1" id="uploadFile1" placeholder=""
+                  [(ngModel)]="verificationFileNem1">
+              </div>
+            </div>
+          </div>
+          <div class="w-2/4 p-3">
+            <div class="flex items-center w-full p-4 form-group">
+              <div class="flex items-center w-3/4">
+                <label for="uploadFile2">
+                  <p>{{verificationFileNem2}}</p>
+                </label>
+              </div>
+              <div class="flex items-center justify-end w-1/4">
+                <label for="uploadFile2">
+                  <img src="assets/icons/uploadFile.svg" alt="fileUpload">
+                </label>
+                <input type="file" class="hidden form-control-file" name="uploadFile2" id="uploadFile2" placeholder=""
+                  [(ngModel)]="verificationFileNem2">
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- 3-4 -->
+        <div class="flex mb-4">
+          <div class="w-2/4 p-3">
+            <div class="flex items-center w-full form-group">
+              <div class="flex items-center w-3/4">
+                <label for="uploadFile3">
+                  <p>{{verificationFileNem3}}</p>
+                </label>
+              </div>
+              <div class="flex items-center justify-end w-1/4">
+                <label for="uploadFile3">
+                  <img src="assets/icons/uploadFile.svg" alt="fileUpload">
+                </label>
+                <input type="file" class="hidden form-control-file" name="uploadFile3" id="uploadFile3" placeholder=""
+                  [(ngModel)]="verificationFileNem3">
+              </div>
+            </div>
+          </div>
+          <div class="w-2/4 p-3">
+            <div class="flex items-center w-full p-4 form-group">
+              <div class="flex items-center w-3/4">
+                <label for="uploadFile4">
+                  <p>{{verificationFileNem4}}</p>
+                </label>
+              </div>
+              <div class="flex items-center justify-end w-1/4">
+                <label for="uploadFile4">
+                  <img src="assets/icons/uploadFile.svg" alt="fileUpload">
+                </label>
+                <input type="file" class="hidden form-control-file" name="uploadFile4" id="uploadFile4" placeholder=""
+                  [(ngModel)]="verificationFileNem4">
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- 5-6 -->
+        <div class="flex mb-4">
+          <div class="w-2/4 p-3">
+            <div class="flex items-center w-full form-group">
+              <div class="flex items-center w-3/4">
+                <label for="uploadFile5">
+                  <p>{{verificationFileNem5}}</p>
+                </label>
+              </div>
+              <div class="flex items-center justify-end w-1/4">
+                <label for="uploadFile5">
+                  <img src="assets/icons/uploadFile.svg" alt="fileUpload">
+                </label>
+                <input type="file" class="hidden form-control-file" name="uploadFile5" id="uploadFile5" placeholder=""
+                  [(ngModel)]="verificationFileNem5">
+              </div>
+            </div>
+          </div>
+          <div class="w-2/4 p-3">
+            <div class="flex items-center w-full p-4 form-group">
+              <div class="flex items-center w-3/4">
+                <label for="uploadFile6">
+                  <p>{{verificationFileNem6}}</p>
+                </label>
+              </div>
+              <div class="flex items-center justify-end w-1/4">
+                <label for="uploadFile6">
+                  <img src="assets/icons/uploadFile.svg" alt="fileUpload">
+                </label>
+                <input type="file" class="hidden form-control-file" name="uploadFile6" id="uploadFile6" placeholder=""
+                  [(ngModel)]="verificationFileNem6">
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- 7-8 items -->
+        <div class="flex mb-4">
+          <div class="w-2/4 p-3">
+            <div class="flex items-center w-full form-group">
+              <div class="flex items-center w-3/4">
+                <label for="uploadFile7">
+                  <p>{{verificationFileNem7}}</p>
+                </label>
+              </div>
+              <div class="flex items-center justify-end w-1/4">
+                <label for="uploadFile7">
+                  <img src="assets/icons/uploadFile.svg" alt="fileUpload">
+                </label>
+                <input type="file" class="hidden form-control-file" name="uploadFile7" id="uploadFile7" placeholder=""
+                  [(ngModel)]="verificationFileNem7">
+              </div>
+            </div>
+          </div>
+          <div class="w-2/4 p-3">
+            <div class="flex items-center w-full p-4 form-group">
+              <div class="flex items-center w-3/4">
+                <label for="uploadFile8">
+                  <p>{{verificationFileNem8}}</p>
+                </label>
+              </div>
+              <div class="flex items-center justify-end w-1/4">
+                <label for="uploadFile8">
+                  <img src="assets/icons/uploadFile.svg" alt="fileUpload">
+                </label>
+                <input type="file" class="hidden form-control-file" name="uploadFile8" id="uploadFile8" placeholder=""
+                  [(ngModel)]="verificationFileNem8">
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- 9-10 items -->
+        <div class="flex mb-4">
+          <div class="w-2/4 p-3">
+            <div class="flex items-center w-full form-group">
+              <div class="flex items-center w-3/4">
+                <label for="uploadFile9">
+                  <p>{{verificationFileNem9}}</p>
+                </label>
+              </div>
+              <div class="flex items-center justify-end w-1/4">
+                <label for="uploadFile9">
+                  <img src="assets/icons/uploadFile.svg" alt="fileUpload">
+                </label>
+                <input type="file" class="hidden form-control-file" name="uploadFile" id="uploadFile9" placeholder=""
+                  [(ngModel)]="verificationFileNem9">
+              </div>
+            </div>
+          </div>
+          <div class="w-2/4 p-3">
+            <div class="flex items-center w-full p-4 form-group">
+              <div class="flex items-center w-3/4">
+                <label for="uploadFile10">
+                  <p>{{verificationFileNem10}}</p>
+                </label>
+              </div>
+              <div class="flex items-center justify-end w-1/4">
+                <label for="uploadFile10">
+                  <img src="assets/icons/uploadFile.svg" alt="fileUpload">
+                </label>
+                <input type="file" class="hidden form-control-file" name="uploadFile10" id="uploadFile10" placeholder=""
+                  [(ngModel)]="verificationFileNem10">
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="pb--4 submit-modal">
+      <button type="button" class="btn" (click)="verifyStepOne()">
+        Verify
+      </button>
+    </div>
+  </div>
+</div>
+<!-- Person Verification-->
+<div class="verification-area" *ngIf="verifyStep2" id="PersonVerification">
+  <div class="modal">
+    <div class="p-5 top-bar">
+      <div class="flex">
+        <div class="w-3/4">
+          <a href="">Verification Persona</a>
+        </div>
+        <div class="flex justify-end w-1/4">
+          <button type="button" class="btn" (click)="verifyStepHide()"><i class="fa-solid fa-xmark"></i></button>
+        </div>
+      </div>
+    </div>
+    <div class="pt-5 modal-content">
+      <div class="file-inputs">
+        <div class="flex mb-1">
+          <div class="w-2/4 p-3">
+            <div>
+              <div class="py-3 pl-2 label" >
+                <p>Selfie</p>
+              </div>
+              <div class="flex items-center w-full form-group">
+                <div class="flex items-center w-3/4">
+                  <label for="selfieVerification">
+                    <p>{{selfieVerification}}</p>
+                  </label>
+                </div>
+                <div class="flex items-center justify-end w-1/4">
+                  <label for="uploadFile1">
+                    <img src="assets/icons/uploadFile.svg" alt="fileUpload">
+                  </label>
+                  <input type="file" class="hidden form-control-file" name="selfieVerification" id="selfieVerification" placeholder=""
+                    [(ngModel)]="selfieVerification">
+                </div>
+              </div>
+            </div>
+
+          </div>
+          <div class="w-2/4 p-3">
+            <div>
+              <div class="py-3 pl-2 label" >
+                <p>Carnet</p>
+              </div>
+              <div class="flex items-center w-full form-group">
+                <div class="flex items-center w-3/4">
+                  <label for="CarnetVerification">
+                    <p>{{CarnetVerification}}</p>
+                  </label>
+                </div>
+                <div class="flex items-center justify-end w-1/4">
+                  <label for="uploadFile1">
+                    <img src="assets/icons/uploadFile.svg" alt="fileUpload">
+                  </label>
+                  <input type="file" class="hidden form-control-file" name="selfieVerification" id="CarnetVerification" placeholder=""
+                    [(ngModel)]="CarnetVerification">
+                </div>
+              </div>
+            </div>
+
+          </div>
+        </div>
+
+        <div class="flex mb-4">
+          <div class="w-2/4 p-3">
+            <div>
+              <div class="py-3 pl-2 label" >
+                <p>Domicilio</p>
+              </div>
+              <div class="flex items-center w-full form-group">
+                <div class="flex items-center w-3/4">
+                  <label for="HomeVerification">
+                    <p>{{HomeVerification}}</p>
+                  </label>
+                </div>
+                <div class="flex items-center justify-end w-1/4">
+                  <label for="uploadFile1">
+                    <img src="assets/icons/uploadFile.svg" alt="fileUpload">
+                  </label>
+                  <input type="file" class="hidden form-control-file" name="selfieVerification" id="HomeVerification" placeholder=""
+                    [(ngModel)]="HomeVerification">
+                </div>
+              </div>
+            </div>
+
+          </div>
+          <div class="w-2/4 p-3">
+            <div>
+              <div class="py-3 pl-2 label" >
+                <p>Cartola</p>
+              </div>
+              <div class="flex items-center w-full form-group">
+                <div class="flex items-center w-3/4">
+                  <label for="CrayolaVerification">
+                    <p>{{CrayolaVerification}}</p>
+                  </label>
+                </div>
+                <div class="flex items-center justify-end w-1/4">
+                  <label for="CrayolaVerification">
+                    <img src="assets/icons/uploadFile.svg" alt="fileUpload">
+                  </label>
+                  <input type="file" class="hidden form-control-file" name="selfieVerification" id="CrayolaVerification" placeholder=""
+                    [(ngModel)]="CrayolaVerification">
+                </div>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="pt-3 pb-6 submit-modal">
+      <button type="button" class="btn" (click)="verifyStepHide()">
+        Verify
+      </button>
+    </div>
+  </div>
+</div>
+<!-- 2-Factor Authentication -->
+<div class="verification-area"  id="TwoFactorAuthentication" *ngIf="TwoFactor">
+  <div class="modal">
+    <div class="p-5 top-bar">
+      <div class="flex">
+        <div class="w-3/4">
+        </div>
+        <div class="flex justify-end w-1/4">
+          <button type="button" class="btn" (click)="TwoFactor=!TwoFactor"><i class="fa-solid fa-xmark"></i></button>
+        </div>
+      </div>
+    </div>
+    <div class="pt-5 modal-content">
+      <div class="py-4 top-title">
+          <h2>2-Factor Authentication</h2>
+      </div>
+      <div class="flex justify-center w-full">
+          <img src="assets/qrCode.svg" alt="qrCode">
+      </div>
+      <div class="py-4 download-text">
+          <p>If you want to turn on 2FA, use <a href=""> Google authentication app</a> to scan code,
+            then enter six-digit code provided by the app to the form below.</p>
+      </div>
+    </div>
+    <div class="pt-3 pb-6 submit-modal">
+      <button type="button" class="btn" (click)="TwoFactor=false">
+        Download App
+      </button>
+    </div>
+
+    <div class="pt-2 pb-4 text-center verify-txt">
+        <p>Enter 6 digit code</p>
+    </div>
+    <div class="verify-code">
+        <div class="mr-3 form-group">
+          <input type="text"
+            class="form-control" name="" id="" aria-describedby="helpId" placeholder="5">
+        </div>
+        <div class="mr-3 form-group">
+          <input type="text"
+            class="form-control" name="" id="" aria-describedby="helpId" placeholder="5">
+        </div>
+        <div class="mr-3 form-group">
+          <input type="text"
+            class="form-control" name="" id="" aria-describedby="helpId" placeholder="5">
+        </div>
+        <div class="mr-3 form-group">
+          <input type="text"
+            class="form-control" name="" id="" aria-describedby="helpId" placeholder="5">
+        </div>
+        <div class="mr-3 form-group">
+          <input type="text"
+            class="form-control" name="" id="" aria-describedby="helpId" placeholder="5">
+        </div>
+        <div class=" form-group">
+          <input type="text"
+            class="form-control" name="" id="" aria-describedby="helpId" placeholder="5">
+        </div>
+    </div>
+  </div>
+</div>
+<!-- Change Password -->
+<div class="verification-area"  id="ChangePassword" *ngIf="ChangePassword">
+  <div class="modal">
+    <div class="p-5 top-bar">
+      <div class="flex">
+        <div class="w-3/4">
+        </div>
+        <div class="flex justify-end w-1/4">
+          <button type="button" class="btn" (click)="ChangePassword=!ChangePassword"><i class="fa-solid fa-xmark"></i></button>
+        </div>
+      </div>
+    </div>
+    <div class="pt-5 modal-content">
+      <div class="flex justify-center w-full py-4">
+          <img src="assets/icons/changePass.svg" alt="changePass">
+      </div>
+      <div class="w-3/4 py-4 mx-auto">
+        <h2>Create new Password</h2>
+          <form class="py-4">
+              <div class="relative flex flex-col mb-2 form-group">
+                <label for="EnterOldPassword">Enter old password</label>
+                <input [type]="showPass? 'text':'password'"
+                  class="form-control" name="EnterOldPassword" id="EnterOldPassword"  placeholder="">
+                    <button type="button" class="absolute h-full show-pass" (click)="showPass=!showPass">
+                        <i class="fa-solid" [ngClass]="showPass? 'fa-eye-slash':'fa-eye'"></i>
+                      </button>
+              </div>
+              <div class="flex flex-col mb-2 form-group">
+                <label for="EnterNewPassword">Enter New password</label>
+                <input type="password"
+                  class="form-control" name="EnterNewPassword" id="EnterNewPassword"  placeholder="">
+              </div>
+              <div class="flex flex-col form-group">
+                <label for="ReEnterNewPassword">Re-Enter New password</label>
+                <input type="password"
+                  class="form-control" name="ReEnterNewPassword" id="ReEnterNewPassword"  placeholder="">
+              </div>
+          </form>
+      </div>
+    </div>
+    <div class="pb-8 submit-modal">
+      <button type="button" class="btn" (click)="ChangePassword=!ChangePassword">
+        Change Password
+      </button>
+    </div>
+  </div>
+</div>
