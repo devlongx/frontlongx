@@ -1,0 +1,341 @@
+<div class="overflow-hidden otc-area">
+  <div class="w-full overflow-hidden">
+    <div class="flex">
+      <div class="w-7/12 p-4 top-bar">
+        <div class="flex">
+          <div class="w-2/4 md:p-2 lg:p-2 2xl:p-4">
+            <div class="estimated-balance top-item">
+              <div class="flex items-center justify-start top-content">
+                <button type="button" class="top-content-btn">
+                  <img src="assets/flag/chile.svg" alt="" />
+                </button>
+                <div class="px-4">
+                  <h3>Pesos Chilenos</h3>
+                  <p class="clip">CLP</p>
+                </div>
+              </div>
+              <div class="lg:pb-2 lg:pt-4 balance-price 2xl:pb-5 2xl:pt-8 md:pb-2 md:pt-4">
+                <div class="flex items-center justify-between">
+                  <div class="price-details">
+                    <h2>$32.000.000</h2>
+                    <p>34.042 USDT</p>
+                  </div>
+                  <div class="price-parcent">
+                    <p>+16.78 %</p>
+                  </div>
+                </div>
+              </div>
+              <div class="flex items-center justify-between balance-button-group">
+                <button type="button" class="mr-2 lg:w-2/4 remove-btn">
+                  retirar
+                </button>
+                <button type="button" class="ml-2 lg:w-2/4 deposit-btn">
+                  Depositar
+                </button>
+              </div>
+            </div>
+          </div>
+          <div class="w-2/4 md:p-2 lg:p-2 2xl:p-4">
+            <div class="top-item chilean-pesos">
+              <div class="flex items-center justify-start top-content">
+                <button type="button" class="top-content-btn">
+                  <img src="assets/logos/usdt.svg" alt="chile" />
+                </button>
+                <div class="px-4">
+                  <h3>Tether</h3>
+                  <p>usd</p>
+                </div>
+              </div>
+              <div class="lg:pb-2 lg:pt-4 balance-price 2xl:pb-5 2xl:pt-8 md:pb-2 md:pt-4">
+                <div class="flex items-center justify-between">
+                  <div class="price-details">
+                    <h2>$32.000.000</h2>
+                    <p>34.042 USDT</p>
+                  </div>
+                  <div class="bg-transparent">
+                    <img src="assets/graph/graph2.svg" alt="chile" />
+                  </div>
+                </div>
+              </div>
+              <div class="pt-4 pb-5 chilean-bottom">
+                <div class="flex items-center justify-between">
+                  <div class="chilean-bottom-details1">
+                    <p>PnL Daily</p>
+                  </div>
+                  <div class="chilean-bottom-details2">
+                    <p>+$16.78</p>
+                  </div>
+                  <div class="chilean-bottom-details3">
+                    <p>+16.78 %</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- usdt / clip -->
+        <div class="w-full p-4 usdt-clip-area">
+          <div class="flex items-center justify-between md:p-2 lg:p-2 2xl:p-4">
+            <h2 class="otc-text">OTC <span>Usdt/CLP</span></h2>
+            <div class="flex company">
+              <button type="button" class="btn active">Empresa</button>
+              <button type="button" class="btn">Persona</button>
+            </div>
+          </div>
+          <div class="w-full md:p-2 lg:p-2 2xl:p-4 statistics-right">
+            <!-- exchange -->
+            <div class="exchange-bar">
+              <div class="flex items-center justify-between w-full top-btn-group">
+                <div class="compare-btn-group">
+                  <button type="button" class="btn">
+                    <span>Comprar</span>
+                  </button>
+                  <button type="button" class="ml-3 btn2">
+                    <span class="">Exchange</span>
+                  </button>
+                </div>
+                <div class="usdt-btn-area">
+                  <button type="button" class="usdt-btn">
+                    <img src="assets/logos/usdt.svg" alt="usdt" class="mx-2" />
+                    USDT
+                    <i class="mx-2 fa-solid fa-angle-down"></i>
+                  </button>
+                </div>
+              </div>
+              <!-- OTC One -->
+              <div class="flex flex-col items-start justify-between p-5 compare-market Step-one" [formGroup]="OtcOne"
+                *ngIf="OTCstep1">
+                <div>
+                  <div class="flex flex-col w-full h-full my-3 form-group">
+                    <label for="ValuePerUsdt">Valor por USDT Confirmado</label>
+                    <div class="relative w-full">
+                      <input type="text" name="ValuePerUsdt" id="ValuePerUsdt" class="w-full form-control"
+                        placeholder="$ 8,241" formControlName="ValueUSDTConfirmed" />
+                    </div>
+                  </div>
+                  <div class="flex mb-3">
+                    <div class="w-2/4 pr-3">
+                      <div class="flex flex-col w-full h-full form-group">
+                        <label for="totalUsdt">Valor por USDT Confirmado</label>
+                        <div class="relative w-full">
+                          <input type="text" name="totalUsdt" id="totalUsdt" class="w-full form-control"
+                            placeholder="$77.000" formControlName="TotalUSDT" />
+                        </div>
+                      </div>
+                    </div>
+                    <div class="w-2/4 pl-3">
+                      <div class="flex flex-col w-full h-full form-group">
+                        <label for="Total">Valor por USDT Confirmado</label>
+                        <div class="relative w-full">
+                          <input type="text" name="Total" id="Total" class="w-full form-control"
+                            placeholder="$75.229.000" formControlName="Total" />
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="flex flex-col w-full h-full mb-3 form-group">
+                    <div class="flex flex-col w-full h-full form-group">
+                      <label for="ValuePerUsdt">Valor por USDT Confirmado</label>
+                      <div class="relative w-full">
+                        <input type="text" name="ValuePerUsdt" id="ValuePerUsdt" class="w-full form-control"
+                          placeholder="RED TRON TRC-20" [(ngModel)]="clipboardText"
+                          formControlName="DepositTotalAddress" />
+                        <button type="button" class="absolute btn-copy" data-toggle="button"
+                          [cdkCopyToClipboard]="clipboardText">
+                          Copiar
+                          <i class="fa-regular fa-copy"></i>
+                        </button>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="mt-8 form-check checkbox">
+                    <label class="text-white form-check-label">
+                      <input type="checkbox" class="form-check-input" name="confirm" id="confirm" value="true"
+                        formControlName="confirm" (click)="checkbox = !checkbox"
+                        [ngClass]="checkbox ? 'activeCheck' : ''" />
+                      Confirmo que deposite usdt a esta direccion
+                    </label>
+                  </div>
+                </div>
+                <!-- Exchange btn -->
+                <div class="flex justify-center w-full h-full pb-10 text-center">
+                  <button type="button" class="exchange-button" [disabled]="!OtcOne.valid">
+                    Exchange
+                  </button>
+                </div>
+              </div>
+
+              <!-- OTC Two -->
+              <div class="flex flex-col items-start justify-between p-5 compare-market Step-one" [formGroup]="OtcTwo"
+                *ngIf="OTCstep2">
+                <div>
+                  <div class="flex flex-col w-full h-full my-3 form-group">
+                    <label for="ValuePerUsdt">Valor por USDT Confirmado</label>
+                    <div class="relative w-full">
+                      <input type="text" name="ValuePerUsdt" id="ValuePerUsdt" class="w-full form-control"
+                        placeholder="$ 8,241" formControlName="ValueUSDTConfirmed" />
+                    </div>
+                  </div>
+                  <div class="flex mb-3">
+                    <div class="w-2/4 pr-3">
+                      <div class="flex flex-col w-full h-full form-group">
+                        <label for="totalUsdt">Valor por USDT Confirmado</label>
+                        <div class="relative w-full">
+                          <input type="text" name="totalUsdt" id="totalUsdt" class="w-full form-control"
+                            placeholder="$77.000" formControlName="TotalUSDT" />
+                        </div>
+                      </div>
+                    </div>
+                    <div class="w-2/4 pl-3">
+                      <div class="flex flex-col w-full h-full form-group">
+                        <label for="Total">Valor por USDT Confirmado</label>
+                        <div class="relative w-full">
+                          <input type="text" name="Total" id="Total" class="w-full form-control"
+                            placeholder="$75.229.000" formControlName="Total" />
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="flex flex-col w-full h-full mb-3 form-group">
+                    <div class="flex flex-col w-full h-full form-group">
+                      <label for="ValuePerUsdt">Valor por USDT Confirmado</label>
+                      <div class="relative w-full">
+                        <div class="select-btn">
+                          <button type="button" class="flex items-center justify-between w-full px-4 rounded-lg btn drop-btn" (click)="isOpen=!isOpen">
+                            <div class="flex items-center w-full px-2">
+                              <img src={{Method.pic}} alt="pic">
+                              <div class="mx-2"><p>{{Method.name}}</p></div>
+                            </div>
+                            <div class="px-2 arrow-btn">
+                              <i class="fa-solid" [ngClass]="isOpen? 'fa-angle-up':'fa-angle-down'"></i>
+                            </div>
+                          </button>
+                          <div class="absolute left-0 right-0 z-20 w-full p-4 rounded-lg dropdown-menu SelectBank-drop"
+                          [ngClass]="isOpen? 'active':''" aria-labelledby="triggerId">
+                          <div *ngFor="let item of MethodList" class="flex justify-start w-full">
+                            <button class="flex items-center justify-start w-full dropdown-item" type="button" (click)="MethodChange(item)">
+                              <div class="px-3">
+                                <img src={{item.pic}} alt="pic">
+                              </div>
+                              <div>
+                                {{item.name}}
+                              </div>
+                              </button>
+                          </div>
+                        </div>
+                      </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="mt-8 form-check checkbox">
+                    <label class="text-white form-check-label">
+                      <input type="checkbox" class="form-check-input" name="confirm" id="confirm" value="true"
+                        formControlName="confirm" (click)="checkbox = !checkbox"
+                        [ngClass]="checkbox ? 'activeCheck' : ''" />
+                      Confirmo que deposite usdt a esta direccion
+                    </label>
+                  </div>
+                </div>
+                <!-- Exchange btn -->
+                <div class="flex justify-center w-full h-full pb-10 text-center">
+                  <button type="button" class="exchange-button" [disabled]="!OtcOne.valid">
+                    Exchange
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="w-5/12 p-4 pl-0">
+        <!-- top history -->
+        <div class="md:p-2 lg:p-2 2xl:p-4">
+          <div class="px-6 py-5 transaction-history">
+            <div class="flex justify-between top-text">
+              <p>Transaction History OTC</p>
+              <button>View More</button>
+            </div>
+            <div *ngFor="let items of history" class="">
+              <div class="flex items-center py-2 transaction-table-body">
+                <div class="w-3/12 text-center coin">
+                  <div class="flex items-center">
+                    <div class="flex items-center justify-center coin-box">
+                      <img [src]="items.flag" alt="chile" />
+                    </div>
+                    <div class="pl-3 coin-content">
+                      <h4>{{ items.coinName }}</h4>
+                    </div>
+                  </div>
+                </div>
+                <div class="w-3/12 text-center type">
+                  <p [class]="items.typeBg">{{ items.type }}</p>
+                </div>
+                <div class="w-3/12 text-center Date">
+                  <p>{{ items.time }}</p>
+                </div>
+
+                <div class="w-3/12 text-center State">
+                  <p [class]="items.stateC">{{ items.state }}</p>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="flex items-end justify-start p-4 mt-6 chart-file chart-pie">
+            <div class="w-7/12 h-full">
+              <div class="relative chartBox">
+                <apx-chart ngClass="chart-box z-10 relative" [series]="chartOptions.series!"
+                  [chart]="chartOptions.chart!" [labels]="chartOptions.labels!" [responsive]="chartOptions.responsive!"
+                  [fill]="chartOptions.fill!" [stroke]="chartOptions.stroke!" [tooltip]="chartOptions.tooltip!"
+                  [legend]="chartOptions.legend!"></apx-chart>
+                <div class="absolute top-0 text-white shape">
+                  <div class="border_shape">
+                    <p>CLP</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="w-5/12 h-full">
+              <div class="flex chart-btn">
+                <div class="flex items-center buy">
+                  <div class="mx-2 buyBg"></div>
+                  <p>Comprar</p>
+                </div>
+                <div class="flex items-center px-2 Sell">
+                  <div class="mx-2 SellBg"></div>
+                  <p>Vender</p>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="flex items-end justify-start p-4 mt-6 chart-file chart-pie">
+            <div class="w-7/12 h-full">
+              <div class="relative chartBox">
+                <apx-chart ngClass="chart-box z-10 relative" [series]="chartOptions2.series!"
+                  [chart]="chartOptions2.chart!" [labels]="chartOptions2.labels!"
+                  [responsive]="chartOptions2.responsive!" [fill]="chartOptions2.fill!" [stroke]="chartOptions2.stroke!"
+                  [tooltip]="chartOptions2.tooltip!" [legend]="chartOptions2.legend!"></apx-chart>
+                <div class="absolute top-0 text-white shape">
+                  <div class="border_shape">
+                    <p>USDT</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="w-5/12 h-full">
+              <div class="flex chart-btn">
+                <div class="flex items-center buy">
+                  <div class="mx-2 buyBg buyBg1"></div>
+                  <p>Comprar</p>
+                </div>
+                <div class="flex items-center px-2 Sell">
+                  <div class="mx-2 SellBg SellBg2"></div>
+                  <p>Vender</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
