@@ -7,7 +7,8 @@ import { Observable } from 'rxjs';
   providedIn: 'root',
 })
 export class AdminAuthService {
-  private apiUrl = 'http://localhost:3000/api'; // Adjust the URL according to your API endpoint
+  // private apiUrl = 'http://localhost:3000/api'; // Adjust the URL according to your API endpoint
+  private apiUrl = 'https://longx-2745b44dda2d.herokuapp.com/api'; // Adjust the URL according to your API endpoint
   private token: string | null = null;
 
   constructor(private http: HttpClient) {}
